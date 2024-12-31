@@ -19,7 +19,7 @@ function autoArchive() {
       totalThreadsProcessed += pageThreads.length;
       console.log('Page ' + pageCount + ': found ' + pageThreads.length + ' inbox threads');
 
-      if (pageThreads[pageThreads.length - 1].getLastMessageDate() >= maxDate) {
+      if (!isLastPage && pageThreads[pageThreads.length - 1].getLastMessageDate() >= maxDate) {
         console.log('Skipping page ' + pageCount + ': all threads after threshold');
         continue;
       }
